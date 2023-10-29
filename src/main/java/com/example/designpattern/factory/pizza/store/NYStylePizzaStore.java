@@ -1,6 +1,7 @@
 package com.example.designpattern.factory.pizza.store;
 
 import com.example.designpattern.factory.pizza.*;
+import com.example.designpattern.factory.pizza.ingredient.factory.NYPizzaIngredientFactory;
 import com.example.designpattern.factory.pizza.menu.*;
 import com.example.designpattern.factory.pizza.menu.ny.NYStyleCheesePizza;
 import com.example.designpattern.factory.pizza.menu.ny.NYStyleClamPizza;
@@ -12,7 +13,7 @@ public class NYStylePizzaStore extends PizzaStore {
     @Override
     public Pizza createPizza(PizzaType type) {
         if (type == PizzaType.CHEESE) {
-            return new NYStyleCheesePizza(PREFIX, PizzaType.CHEESE.getValue());
+            return new NYStyleCheesePizza(PREFIX, PizzaType.CHEESE.getValue(), new NYPizzaIngredientFactory());
         } else if (type == PizzaType.GREEK ) {
             return new NYStyleGreekPizza(PREFIX, PizzaType.GREEK.getValue());
         } else if (type == PizzaType.PEPPERONI ) {
